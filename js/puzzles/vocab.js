@@ -16,7 +16,7 @@ ER.register({
 
     body.append(el('div', { class: 'card intro-card' },
       el('p', {}, '🔍 Drag each definition card to match the correct term. When you think you have them all right, press ', el('b', {}, 'Check my matches'), '.'),
-      el('p', { class: 'muted small' }, '💡 Key vocab: <span class="term">fertilisation</span>, <span class="term">mitosis</span>, <span class="term">meiosis</span>, <span class="term">haploid</span>, <span class="term">diploid</span>, <span class="term">gamete</span>, <span class="term">spore</span>, <span class="term">seed</span>, <span class="term">offspring</span>, <span class="term">desiccation</span>')));
+      el('p', { class: 'muted small', html: '💡 Key vocab: <span class="term">fertilisation</span>, <span class="term">mitosis</span>, <span class="term">meiosis</span>, <span class="term">haploid</span>, <span class="term">diploid</span>, <span class="term">gamete</span>, <span class="term">spore</span>, <span class="term">seed</span>, <span class="term">offspring</span>, <span class="term">desiccation</span>' })));
 
     const slots = [
       { label: 'fertilisation', accept: 'fert' },
