@@ -64,10 +64,10 @@ ER.register({
     const selects = {};
     const tbl = el('table', { class: 'answer-table' });
     tbl.append(el('tr', {}, el('th', {}, 'Organism'), el('th', {}, 'Reproduction method')));
-    ORGANISMS.forEach((o) => {
+    ER.shuffle(ORGANISMS).forEach((o) => {
       const sel = el('select', { 'aria-label': o.name },
         el('option', { value: '' }, 'choose…'),
-        METHODS.map((m) => el('option', { value: m }, m)));
+        ER.shuffle(METHODS).map((m) => el('option', { value: m }, m)));
       sel.addEventListener('change', () => sel.classList.remove('ok', 'no'));
       selects[o.id] = sel;
       tbl.append(el('tr', {},
