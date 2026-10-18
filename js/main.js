@@ -512,20 +512,6 @@
     state.current = id;
     roomView.hidden = true; puzzleView.hidden = false; puzzleView.innerHTML = '';
 
-    const hintBox = el('div', { class: 'hint-box', hidden: true });
-    let shown = 0;
-    const hints = def.hints || [];
-    const hintBtn = el('button', { class: 'btn btn-sun' }, `💡 Hint (${hints.length} left)`);
-    hintBtn.addEventListener('click', () => {
-      if (shown >= hints.length) return;
-      sfx.hint();
-      hintBox.hidden = false;
-      hintBox.append(el('div', { class: 'hint' }, el('b', {}, `Hint ${shown + 1}: `), hints[shown]));
-      shown++;
-      const left = hints.length - shown;
-      hintBtn.textContent = left ? `💡 Another hint (${left} left)` : '💡 No more hints';
-      hintBtn.disabled = !left;
-    });
     const printBtn = def.printable
       ? el('button', { class: 'btn btn-light', onclick: () => { document.body.classList.add('printing'); setTimeout(() => { window.print(); document.body.classList.remove('printing'); }, 50); } }, '🖨️ Print sheet')
       : null;
@@ -535,13 +521,13 @@
       el('div', { class: 'scene-title' },
         el('span', { class: 'scene-icon' }, def.icon),
         el('div', {}, el('h2', {}, def.title), el('p', {}, def.tagline))),
-      el('div', { class: 'tools' }, hintBtn, printBtn));
+      el('div', { class: 'tools' }, printBtn));
 
     const banner = state.solved.includes(id) && id !== 'door'
       ? el('div', { class: 'solved-banner' }, el('span', {}, '✅ Already solved! Your code is in your Lab Notes:'), codeTiles(def.code))
       : null;
     const body = el('div', { class: 'scene-body' });
-    const scene = el('div', { class: 'scene kind-' + def.kind }, head, hintBox, banner, body);
+    const scene = el('div', { class: 'scene kind-' + def.kind }, head, banner, body);
     puzzleView.append(scene);
     window.scrollTo({ top: 0, behavior: 'smooth' });
 

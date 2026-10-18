@@ -76,7 +76,6 @@ ER.register({
     });
 
     const fb = el('p', { class: 'feedback', 'aria-live': 'polite' });
-    let tries = 0;
     const checkBtn = el('button', { class: 'btn btn-sun btn-big no-print' }, '✔ Check my answers');
     checkBtn.addEventListener('click', () => {
       const blank = Object.values(selects).filter((s) => !s.value).length;
@@ -86,7 +85,6 @@ ER.register({
         const ok = selects[o.id].value === SOLUTION[o.id];
         if (ok) right++;
       });
-      tries++;
       if (right === ORGANISMS.length) {
         ORGANISMS.forEach((o) => { selects[o.id].classList.add('ok'); selects[o.id].disabled = true; });
         checkBtn.disabled = true;
@@ -95,16 +93,7 @@ ER.register({
         api.solve();
       } else {
         sfx.bad();
-        if (tries >= 3) {
-          ORGANISMS.forEach((o) => {
-            const ok = selects[o.id].value === SOLUTION[o.id];
-            selects[o.id].classList.toggle('ok', ok);
-            selects[o.id].classList.toggle('no', !ok);
-          });
-          ER.say(fb, `${right} of ${ORGANISMS.length} correct. Correct answers are now green, wrong ones red.`, 'bad');
-        } else {
-          ER.say(fb, `${right} of ${ORGANISMS.length} correct. Re-read the clues and try again.`, 'bad');
-        }
+        ER.say(fb, `${right} of ${ORGANISMS.length} correct. Re-read the clues and try again.`, 'bad');
       }
     });
 
