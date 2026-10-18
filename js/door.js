@@ -47,9 +47,8 @@
       el('div', {},
         el('h3', {}, 'The vault is locked with a Vigenère cipher'),
         el('p', {}, 'A Vigenère cipher uses a ', el('b', {}, 'key word'),
-          ' to scramble a password. The key word is ',
-          el('b', { class: 'kw' }, 'GENE'),
-          ' — the unit of heredity that is passed from parent to offspring. Unscramble your 4 code letters to find the password.'))));
+          ' to scramble a password. Find the key word in your ', el('b', {}, 'Lab Notes'),
+          ' on the right, then unscramble your 4 code letters to reveal the password.'))));
 
     // Codes collected
     body.append(el('div', { class: 'card' },

@@ -652,7 +652,7 @@
         el('li', {}, el('span', {}, '🚶'), el('div', {}, el('b', {}, 'Explore the lab. '), 'Walk with ', el('kbd', {}, 'WASD'), ' / ', el('kbd', {}, 'Arrow keys'), ', or click the floor.')),
         el('li', {}, el('span', {}, '🧩'), el('div', {}, el('b', {}, 'Solve 4 stations. '), 'Walk up to a bench and press ', el('kbd', {}, 'E'), ' or click it. Do them in any order.')),
         el('li', {}, el('span', {}, '📓'), el('div', {}, el('b', {}, 'Collect codes. '), 'Each station gives a letter and a number, saved in your Lab Notes on the right.')),
-        el('li', {}, el('span', {}, '🚪'), el('div', {}, el('b', {}, 'Escape! '), 'Take all 4 codes to the EXIT hatch. Decode the password using the key word ', el('b', {}, 'GENE'), '.'))),
+        el('li', {}, el('span', {}, '🚪'), el('div', {}, el('b', {}, 'Escape! '), 'Take all 4 codes to the EXIT hatch and decode the password. Check your Lab Notes for everything you need.'))),
       el('p', { class: 'muted small' }, '⚠️ Progress is only saved while this tab is open — don\'t refresh!'));
     ER.modal({
       title: first ? '🧬 Welcome to Station Genesis!' : '❓ How to play',
